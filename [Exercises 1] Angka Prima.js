@@ -3,15 +3,13 @@
 */
 
 function angkaPrima(angka) {
-  if (angka % 2 === 0 || angka % 5 === 0 || angka % 11 === 0) {
-    return false;
+  var bilanganPrima = true;
+  for (var i = 2; i < angka; i++) {
+    if (angka % i === 0) {
+      bilanganPrima = false;
+    }
   }
-  else if (angka === 3 || angka === 5 || angka === 7 || angka === 11) {
-    return true;
-  }
-  else {
-    return true;
-  }
+  return bilanganPrima;
 }
 
 // TEST CASES
