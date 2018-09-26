@@ -1,14 +1,37 @@
 function changeVocals (str) {
-  var abjad = 'abcdefghijklmnopqrstuvwxyz';
+  var alfabet= 'bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ' //abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+  var abjad = 'aiueo'; //'abefijopuvABEFIJOPUV'
   var stringArr = [];
 
   for (var i = 0; i < str.length; i++) {
     if (str[i] === ' ') {
       stringArr.push(' ');
     }
-    for (var j = 0; j < abjad.length; j++) {
-      if (str[i] === abjad[j]) {
-        stringArr.push(abjad[j + 1]);
+  for (var j = 0; j < alfabet.length; j++) {
+    if (str[i] === alfabet[j]) {
+      stringArr.push(alfabet[j]);
+    }
+  }
+    switch(str[i]) {
+      case 'a': {
+        stringArr.push('b');
+        break;
+      }
+      case 'i': {
+        stringArr.push('j');
+        break;
+      }
+      case 'u': {
+        stringArr.push('v');
+        break;
+      }
+      case 'e': {
+        stringArr.push('f');
+        break;
+      }
+      case 'o': {
+        stringArr.push('p');
+        break;
       }
     }
   }
@@ -50,13 +73,11 @@ function removeSpaces (str) {
 }
 
 function passwordGenerator (name) {
-  var passwordGenerator = removeSpaces(name);
-
   if (name.length < 5) {
     return 'Minimal karakter yang diinputkan adalah 5 karakter';
+  } else {
+    return removeSpaces(name);
   }
-
-  return passwordGenerator;
 }
 
 console.log(passwordGenerator('Sergei Dragunov')); // 'VPNVGBRdJFGRFs'
