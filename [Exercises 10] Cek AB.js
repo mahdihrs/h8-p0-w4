@@ -1,21 +1,21 @@
 function checkAB(num) {
-  var numSplit = num.split('');
-  var indexA = 0;
-  var indexB = 0;
-  var jarak = 0;
-
-  for (var i = 1; i < numSplit.length; i++) {
-    if (numSplit[i] === 'a') {
-      indexA = numSplit.indexOf('a');
-    } else if (numSplit[i] === 'b') {
-      indexB = numSplit.indexOf('b');
+  for (var i = 0; i < num.length; i++) {
+    if (num[i] === 'a') {
+      if (num[i + 4] === 'b') {
+        return true;
+      }
+      else {
+        return false;
+      }
     }
-  }
-  jarak = indexB - indexA;
-  if (jarak <= 0) {
-    return false;
-  } else {
-    return true;
+    else if (num[i] === 'b') {
+      if (num[i + 4] === 'a') {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
   }
 }
 
