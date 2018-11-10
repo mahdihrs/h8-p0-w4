@@ -1,28 +1,39 @@
+//solution 1 menggunakan for loop untuk mengalikan setiap karakter dalam angka
 function kaliTerusRekursif(angka) {
-  var angkaMod = angka % 10;
-  var sisaAngka = angkaMod;
-  var operasiLanjutan = Math.floor(angka / 10);
-
   if (angka < 10) {
-    return angka;
+    return angka
   }
-
   else {
-    if (angka < 100) {
-      sisaAngka *= kaliTerusRekursif(operasiLanjutan);
-      return sisaAngka;
+    var numStr = angka.toString()
+    angka = 1
+    for (var i = 0; i < numStr.length; i++) {
+      angka *= numStr[i]
     }
-    else {
-      sisaAngka *= kaliTerusRekursif(operasiLanjutan);
-      if (sisaAngka >= 100) {
-        return 0;
-      }
-      else {
-        return sisaAngka;
-      }
-    }
+    return kaliTerusRekursif(angka)
   }
 }
+
+
+//solution 2 menggunakan function lain untuk mengalikan setiap karakter dalam angka
+
+// function kaliTerusRekursif(angka) {
+//   if (angka < 10) {
+//     return angka
+//   }
+//   else {
+//     var numStr = angka.toString()
+//     return kaliTerusRekursif(kaliString(numStr))
+//   }
+// }
+
+// function kaliString(angkaStr) {
+//   if (angkaStr.length < 1) {
+//     return 1
+//   }
+//   else {
+//     return Number(angkaStr[0]) * kaliString(angkaStr.substring(1))
+//   }
+// }
 
 // TEST CASES
 console.log(kaliTerusRekursif(66)); // 8
